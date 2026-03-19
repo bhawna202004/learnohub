@@ -99,3 +99,7 @@ body{
 .header .flex .search-form button:hover{
     color: var(--main-color);
 }
+.header .flex .icons div{
+
+    font-size: 2rem;
+}
