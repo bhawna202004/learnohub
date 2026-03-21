@@ -3,15 +3,14 @@
 
 
 :root{
-    --main-color: #34495e;
-    --red: #e74c3c;
-    --oragen: #e67e22;
-    --white: #ffff;
-    --black: #212121;
-    --light-color: #888;
-    --light-bg: #fff;
-    --border: .1rem solid  rgba(0,0,0,.2);
-
+ --main-color:#8e44ad;
+   --red:#e74c3c;
+   --orange:#f39c12;
+   --light-color:#888;
+   --light-bg:#eee;
+   --black:#2c3e50;
+   --white:#fff;
+   --border:.1rem solid rgba(0,0,0,.2);
 }
 
 *{
@@ -47,10 +46,56 @@ html{
 body{
     background-color: var(--light-bg);
 }
-.flex{
+section{
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.btn,.option-btn,.delete-btn,.inline-btn,.inline-option-btn,.inline-delete-btn{
+     border-radius: .5rem;
+     padding: 1rem 3rem;
+     font-size: 1.8rem;
+     color: #fff;
+     margin-top: 1rem;
+     text-transform: capitalize;
+     cursor: pointer;
+     text-align: center;
+}
+
+.btn,.option-btn,.delete-btn{
+    display: block;
+    width: 100%;
+}
+
+.inline-btn,.inline-option-btn,.inline-delete-btn{
+    display: inline-block;
+}
+
+.btn,.inline-btn{
+    background-color: var(--main-color);
+}
+.option-btn,.inline-option-btn{
+background-color: var(--orange);
+}
+
+.delete-btn,.inline-delete-btn{
+    background-color: var(--red);
+}
+
+.button:hover,
+.option-button:hover,
+.delete-btn:hover,
+.inline-btn:hover,
+.inline-option-btn:hover,
+.inline-delete-btn:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.flex-btn{
+    display: flex;
+    gap: 1rem;
 }
 .header{
     background-color: var(--white);
@@ -76,7 +121,7 @@ body{
 .header .flex .search-form{
     width: 50rem;
     border-radius: .5rem;
-    display: flex ;
+    display: flex;
     align-items: center;
     gap: 2rem;
     padding: 1rem 2rem ;
@@ -90,16 +135,120 @@ body{
     color: var(--black);
 }
 
-.header .flex .search-form button{
+.header .flex .search-form btn{
     font-size: 2rem;
     color: var(--black);
     cursor: pointer;
     background: none;
 }
-.header .flex .search-form button:hover{
-    color: var(--main-color);
+.header .flex .search-form btn:hover{
+    color: var(--light-bg);
+
 }
 .header .flex .icons div{
-
     font-size: 2rem;
+    height: 4.5rem;
+    color: var(--black);
+    cursor: pointer;
+    border-radius: .5rem;
+    width: 4.5rem;
+    line-height: 4.4rem;
+    background-color: var(--light-bg);
+    text-align: center;
+    margin-left: .5rem;
 }
+
+.header .flex .icons div:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+#search-botton{
+    display: none;
+}
+
+.header .flex .profile{
+    position: absolute;
+    top: 120%; right: 2rem ;
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+    width: 30rem;
+     transform: scale(0);
+    transform-origin: top right;
+    transition: .2s linear;
+}
+
+.header .flex .profile.active{
+    transform: scale(1);
+}
+
+.header .flex .profile img{
+    height:10rem ;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: .5rem;
+
+}
+
+.header .flex .profile h3{
+    font-size: 2rem;
+    color: var(--black);
+}
+.header .flex .profile span{
+    color: var(--light-color) ;
+    font-size: 1.6rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* making website responsive */
+
+ @media (max-width:991px){
+   html{
+    font-size: 55%;
+   }
+ }
+
+
+ @media (max-width:768px){
+    #search-btn{
+        display: inline-block;
+    }
+   .header .flex .search-form{
+     position: absolute;
+     top:99%; left: 0; right: 0;
+     width: auto;
+     border-top: var(--border);
+     border-bottom: var(--border);
+     background-color: var(--white);
+     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+       }
+ }
+
+ .header .flex .search-form.active{
+    
+ }
+
+ @media (max-width:450px){
+   html{
+    font-size: 50%;
+   }
+ }
